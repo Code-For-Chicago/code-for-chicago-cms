@@ -1,13 +1,13 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'author',
-  title: 'Author',
+  name: 'project',
+  title: 'Project',
   type: 'document',
   fields: [
     defineField({
-      name: 'name',
-      title: 'Name',
+      name: 'title',
+      title: 'Title',
       type: 'string',
     }),
     defineField({
@@ -15,36 +15,33 @@ export default defineType({
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'name',
+        source: 'title',
         maxLength: 96,
       },
     }),
     defineField({
-      name: 'image',
-      title: 'Image',
+      name: 'mainImage',
+      title: 'Main image',
       type: 'image',
       options: {
         hotspot: true,
       },
     }),
     defineField({
-      name: 'bio',
-      title: 'Bio',
-      type: 'array',
-      of: [
-        {
-          title: 'Block',
-          type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
-          lists: [],
-        },
-      ],
+      name: 'publishedAt',
+      title: 'Published at',
+      type: 'datetime',
+    }),
+    defineField({
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
     }),
   ],
   preview: {
     select: {
-      title: 'name',
-      media: 'image',
+      title: 'title',
+      media: 'mainImage',
     },
   },
 })
