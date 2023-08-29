@@ -33,9 +33,120 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
-      name: 'body',
-      title: 'Body',
+      name: 'aboutThisPartner',
+      title: 'About this Partner',
       type: 'blockContent',
+    }),
+    defineField({
+      name: 'problemToSolve',
+      title: 'Problem to Solve',
+      type: 'blockContent',
+    }),
+    defineField({
+      name: 'availability',
+      title: 'Availability',
+      type: 'string',
+    }),
+    defineField({
+      name: 'commitment',
+      title: 'Commitment',
+      type: 'string',
+    }),
+    defineField({
+      name: 'deliverable',
+      title: 'Deliverable',
+      type: 'string',
+    }),
+    defineField({
+      name: 'projectLinks',
+      title: 'Project Links',
+      type: 'array',
+      of: [
+        {
+          title: 'Project Link',
+          type: 'object',
+          fields: [
+            {
+              title: 'Link Type',
+              name: 'linkType',
+              type: 'string',
+            },
+            {
+              title: 'Link',
+              name: 'link',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'primaryContact',
+      title: 'Primary Contact',
+      type: 'reference',
+      to: [{type: 'person'}],
+    }),
+    defineField({
+      name: 'aboutThisProject',
+      title: 'About this Project',
+      type: 'blockContent',
+    }),
+    defineField({
+      name: 'openPositions',
+      title: 'Open Positions',
+      type: 'array',
+      of: [
+        {
+          title: 'Open Position',
+          type: 'object',
+          fields: [
+            {
+              title: 'Position Title',
+              name: 'positionTitle',
+              type: 'string',
+            },
+            {
+              title: 'Position Description',
+              name: 'positionDescription',
+              type: 'blockContent',
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'filledPositions',
+      title: 'Filled Positions',
+      type: 'array',
+      of: [
+        {
+          title: 'Filled Position',
+          type: 'object',
+          fields: [
+            {
+              title: 'Position Title',
+              name: 'positionTitle',
+              type: 'string',
+            },
+            {
+              title: 'Position Description',
+              name: 'positionDescription',
+              type: 'blockContent',
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'techStack',
+      title: 'Tech Stack',
+      type: 'array',
+      of: [
+        {
+          title: 'Tech Stack Item',
+          type: 'string',
+        },
+      ],
     }),
   ],
   preview: {
