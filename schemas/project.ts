@@ -28,6 +28,11 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'active',
+      title: 'Active',
+      type: 'boolean',
+    }),
+    defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
@@ -63,20 +68,8 @@ export default defineType({
       type: 'array',
       of: [
         {
-          title: 'Project Link',
-          type: 'object',
-          fields: [
-            {
-              title: 'Link Type',
-              name: 'linkType',
-              type: 'string',
-            },
-            {
-              title: 'Link',
-              name: 'link',
-              type: 'string',
-            },
-          ],
+          type: 'reference',
+          to: [{type: 'projectLink'}],
         },
       ],
     }),
@@ -94,48 +87,14 @@ export default defineType({
     defineField({
       name: 'openPositions',
       title: 'Open Positions',
-      type: 'array',
-      of: [
-        {
-          title: 'Open Position',
-          type: 'object',
-          fields: [
-            {
-              title: 'Position Title',
-              name: 'positionTitle',
-              type: 'string',
-            },
-            {
-              title: 'Position Description',
-              name: 'positionDescription',
-              type: 'blockContent',
-            },
-          ],
-        },
-      ],
+      type: 'reference',
+      to: [{type: 'position'}],
     }),
     defineField({
       name: 'filledPositions',
       title: 'Filled Positions',
-      type: 'array',
-      of: [
-        {
-          title: 'Filled Position',
-          type: 'object',
-          fields: [
-            {
-              title: 'Position Title',
-              name: 'positionTitle',
-              type: 'string',
-            },
-            {
-              title: 'Position Description',
-              name: 'positionDescription',
-              type: 'blockContent',
-            },
-          ],
-        },
-      ],
+      type: 'reference',
+      to: [{type: 'position'}],
     }),
     defineField({
       name: 'techStack',
